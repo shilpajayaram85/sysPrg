@@ -4,8 +4,8 @@ int main()
 {
 	int shm_id;
 	char *buff = NULL;
-	key_t key= ftok("/home1/trainer02/sysPrg/day2", 10001);
-	shm_id =  shmget(key, 1024, IPC_CREAT|IPC_EXCL|0666);
+	key_t key= ftok("/home1/trainer02/sysPrg/day2", 100022);
+	shm_id =  shmget(key, 1024, IPC_CREAT|0666);
 	if(shm_id < 0)
 	{
 		perror("shmget() ");
@@ -17,9 +17,10 @@ int main()
 	//buff = (char *) malloc(10);
 	//strcpy(buff, "This is a C Programming class");
 	printf("\n Buffer Content: %s\n", buff);
-	shmdt(buff);
+	//shmdt(buff);
 	
 	printf("\n Address of the buffer pointed is %u\n", buff);
+	shmdt(buff);
 	printf("\n\n");
 	return (EXIT_SUCCESS);
 }
