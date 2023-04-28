@@ -36,6 +36,8 @@ int main()
 
 	shmdt(buff);
 
+	shmctl(shm_id, IPC_RMID, 0);
+
 	printf("\n\n");
 
 	return 0;
